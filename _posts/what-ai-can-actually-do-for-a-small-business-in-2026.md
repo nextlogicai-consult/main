@@ -8,5 +8,4 @@ description: A plain-English breakdown of real AI capabilities vs. the hype —
   actually worth doing.
 featured: true
 ---
-
-A plain-English breakdown of real AI capabilities vs. the hype — written for non-technical business owners who want to understand what's actually worth doing.
+test
