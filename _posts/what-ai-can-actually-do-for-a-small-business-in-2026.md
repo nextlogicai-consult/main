@@ -8,6 +8,7 @@ description: "You've probably heard the big promises about AI. You may have also
   me? Both reactions are valid. Here's the honest answer."
 featured: true
 ---
+![AI Small Business Effieciency](/images/blog/small-business-efficiency.jpg)
 If you follow tech news at all, AI seems to do everything. It's replacing jobs, running companies, writing screenplays, predicting the future. Then you download one of the tools everyone's talking about and find yourself staring at a chatbot that confidently gets basic facts wrong.
  
 The gap between the headlines and the reality is real, and it's confusing if you're a business owner trying to figure out where to actually spend your time and money.
