@@ -9,7 +9,7 @@ description: " Most small businesses waste money on AI because they start with
   implement it without overcomplicating things."
 featured: true
 ---
-![AI blog image](/images/blog/ai-small-business.jpg)
+![AI Small Business](/images/blog/ai-small-business.jpg)
 
 # How Small Businesses Can Start Using AI Without Wasting Money
 
