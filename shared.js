@@ -7,6 +7,7 @@ function injectNav(activePage) {
     { id: 'how-it-works', label: 'How It Works', href: 'how-it-works.html' },
     { id: 'services', label: 'Services', href: 'services.html' },
     { id: 'packages', label: 'Packages', href: 'packages.html' },
+    { id: 'blog', label: 'Blog', href: 'blog.html' },
     { id: 'contact', label: 'Contact', href: 'contact.html' },
   ];
 
@@ -75,6 +76,7 @@ function injectFooter() {
         <a href="how-it-works.html">How It Works</a>
         <a href="services.html">Services</a>
         <a href="packages.html">Packages</a>
+        <a href="blog.html">Blog</a>
         <a href="contact.html">Contact</a>
       </div>
     </footer>
