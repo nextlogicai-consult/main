@@ -19,8 +19,7 @@ function injectNav(activePage) {
   document.body.insertAdjacentHTML('afterbegin', `
     <nav>
       <a href="index.html" class="nav-logo">
-        <div class="logo-mark">NL</div>
-        <span class="logo-text">NextLogic<span>AI</span></span>
+      <img src="logo.png" alt="NextLogicAI" class="nav-logo-img">
       </a>
       <ul class="nav-links">
         ${links}
