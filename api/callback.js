@@ -32,18 +32,21 @@ export default async function handler(req, res) {
 
   res.setHeader('Content-Type', 'text/html');
   res.send(`<script>
-    if (window.opener) {
-      window.opener.postMessage(
-        {
-          type: "authorization:github",
-          data: {
-            token: "${data.access_token}",
-            provider: "github"
-          }
-        },
-        "https://www.nextlogic-ai.com"
-      );
-    }
-    window.close();
+    (function () {
+      const payload =
+        'authorization:github:success:' +
+        JSON.stringify({
+          token: "${data.access_token}",
+          provider: "github"
+        });
+
+      if (window.opener) {
+        window.opener.postMessage(payload, "https://www.nextlogic-ai.com");
+      }
+
+      setTimeout(function () {
+        window.close();
+      }, 800);
+    })();
   </script>`);
 }

@@ -2,8 +2,8 @@ backend:
   name: github
   repo: nextlogicai-consult/Main
   branch: main
-  base_url: https://www.nextlogic-ai.com/api/callback.js
-  auth_endpoint: /auth
+base_url: https://www.nextlogic-ai.com
+auth_endpoint: /api/auth
   site_url: https://www.nextlogic-ai.com
 
 media_folder: "images/blog"
