@@ -2,7 +2,7 @@ backend:
   name: github
   repo: nextlogicai-consult/Main
   branch: main
-  base_url: https://netlify-cms-github-oauth-provider-pink-delta.vercel.app
+  base_url: https://netlify-cms-github-oauth-provider-jet-eta.vercel.app
   auth_endpoint: /auth
   
 media_folder: "images/blog"
@@ -30,4 +30,12 @@ collections:
       - { label: "Read Time (e.g. 7 min)", name: "readtime", widget: "string" }
       - { label: "Summary", name: "description", widget: "text" }
       - { label: "Featured Post?", name: "featured", widget: "boolean", default: false }
+      - label: "SEO"
+        name: "seo"
+        widget: "object"
+        collapsed: true
+        fields:
+          - { label: "Meta Title", name: "meta_title", widget: "string", required: false, hint: "60 chars max. Defaults to post title if left blank." }
+          - { label: "Meta Description", name: "meta_description", widget: "text", required: false, hint: "150–160 chars. This is what shows in Google search results." }
+          - { label: "Slug", name: "slug", widget: "string", required: false, hint: "e.g. what-ai-can-do-for-small-business-2026" }
       - { label: "Body", name: "body", widget: "markdown" }
