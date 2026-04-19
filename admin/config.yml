@@ -5,8 +5,8 @@ backend:
   base_url: https://netlify-cms-github-oauth-provider-pink-delta.vercel.app
   auth_endpoint: /auth
   
-media_folder: "images/blog"
-public_folder: "/images/blog"
+media_folder: "images"
+public_folder: "/images"
 
 collections:
   - name: "posts"
