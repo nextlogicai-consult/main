@@ -745,6 +745,10 @@ footer {
   font-size: 1.05rem;
 }
 
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 /* ── DIVIDER ── */
 .divider {
   border: none;
