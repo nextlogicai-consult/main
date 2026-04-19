@@ -174,9 +174,6 @@ function parseFrontmatter(raw) {
   });
   return { meta, body: match[2] };
 }
-
-const FEATURED_SLUG = 'what-ai-can-actually-do-for-a-small-business-in-2026';
-
 async function loadFeatured() {
   const indexRes = await fetch('/posts/index.json');
   const slugs = await indexRes.json();
