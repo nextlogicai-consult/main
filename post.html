@@ -99,13 +99,28 @@ const CATEGORY_LABELS = {
 };
 
 function parseFrontmatter(raw) {
-  const match = raw.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+  const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
   if (!match) return { meta: {}, body: raw };
   const meta = {};
-  match[1].split('\n').forEach(line => {
-    const [key, ...rest] = line.split(':');
-    if (key && rest.length) meta[key.trim()] = rest.join(':').trim().replace(/^["']|["']$/g, '');
+  const lines = match[1].split('\n');
+  let currentKey = null;
+  let currentVal = [];
+
+  lines.forEach(line => {
+    if (/^\s+\S/.test(line) && currentKey) {
+      currentVal.push(line.trim());
+    } else {
+      if (currentKey) meta[currentKey] = currentVal.join(' ').replace(/^["']|["']$/g, '');
+      const colonIdx = line.indexOf(':');
+      if (colonIdx > 0) {
+        currentKey = line.slice(0, colonIdx).trim();
+        currentVal = [line.slice(colonIdx + 1).trim()];
+      } else {
+        currentKey = null;
+      }
+    }
   });
+  if (currentKey) meta[currentKey] = currentVal.join(' ').replace(/^["']|["']$/g, '');
   return { meta, body: match[2] };
 }
 
