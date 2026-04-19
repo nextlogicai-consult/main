@@ -49,24 +49,7 @@
 
 <section id="featured">
   <div class="reveal"><div class="section-label">Featured Post</div></div>
-  <div class="featured-card reveal" data-category="ai-small-business">
-    <div>
-      <div class="featured-meta">
-        <span class="featured-badge">Priority Read</span>
-        <span class="post-category-tag">AI for Small Business</span>
-        <span class="post-date">June 3, 2024 · 8 min read</span>
-      </div>
-      <h2>How Small Businesses Can Start Using AI Without Wasting Money</h2>
-      <p>Most small businesses are curious about AI but don't know where to start and end up buying tools that don't fit their operation. This guide cuts through the noise and shows you exactly how to approach AI adoption in a way that saves time and delivers real ROI.</p>
-      <div class="featured-read-time">⏱ 8 minute read &nbsp;·&nbsp; AI Adoption · Small Business</div>
-      <a href="post.html?slug=how-small-businesses-can-start-using-ai" class="btn-primary">Read the Article →</a>
-    </div>
-    <div class="featured-visual">
-      <div class="featured-visual-grid"></div>
-      <div class="featured-visual-icon">🚀</div>
-      <div class="featured-visual-label">Start Here</div>
-    </div>
-  </div>
+  <div class="featured-card reveal" id="featuredCard"></div>
 </section>
 
 <section id="blog-grid">
@@ -181,6 +164,50 @@ function subscribeNotify() {
   if (!email || !email.includes('@')) { alert('Please enter a valid email address.'); return; }
   document.querySelector('.notify-form').innerHTML = '<p style="color:var(--cyan);font-family:\'Syne\',sans-serif;font-weight:600;font-size:0.95rem;">You\'re on the list — we\'ll be in touch when new posts go live.</p>';
 }
+function parseFrontmatter(raw) {
+  const match = raw.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+  if (!match) return { meta: {}, body: raw };
+  const meta = {};
+  match[1].split('\n').forEach(line => {
+    const [key, ...rest] = line.split(':');
+    if (key && rest.length) meta[key.trim()] = rest.join(':').trim().replace(/^["']|["']$/g, '');
+  });
+  return { meta, body: match[2] };
+}
+
+const FEATURED_SLUG = 'what-ai-can-actually-do-for-a-small-business-in-2026';
+
+async function loadFeatured() {
+  const indexRes = await fetch('/posts/index.json');
+  const slugs = await indexRes.json();
+
+  for (const slug of slugs) {
+    const res = await fetch(`/posts/${slug}.md`);
+    const raw = await res.text();
+    const { meta } = parseFrontmatter(raw);
+
+    if (meta.featured === 'true') {
+      document.getElementById('featuredCard').innerHTML = `
+        <div>
+          <div class="featured-meta">
+            <span class="featured-badge">Priority Read</span>
+            <span class="post-category-tag">${meta.category}</span>
+            <span class="post-date">${meta.date} · ${meta.readtime} read</span>
+          </div>
+          <h2>${meta.title}</h2>
+          <p>${meta.description}</p>
+          <a href="post.html?slug=${slug}" class="btn-primary">Read the Article →</a>
+        </div>
+        <div class="featured-visual">
+          <img src="${meta.image}" alt="${meta.title}" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+        </div>
+      `;
+      break;
+    }
+  }
+}
+
+loadFeatured();
 </script>
 </body>
 </html>

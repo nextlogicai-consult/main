@@ -29,6 +29,7 @@ collections:
           - { label: "Training & Adoption", value: "training-adoption" }
       - { label: "Read Time (e.g. 7 min)", name: "readtime", widget: "string" }
       - { label: "Summary", name: "description", widget: "text" }
+      - { label: "Featured Image", name: "image", widget: "image", required: false }
       - { label: "Featured Post?", name: "featured", widget: "boolean", default: false }
       - label: "SEO"
         name: "seo"
