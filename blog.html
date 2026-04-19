@@ -171,8 +171,10 @@ async function loadPosts() {
 
   for (const slug of slugs) {
     const res = await fetch(`/posts/${slug}.md`);
+    console.log('Fetching:', slug, res.status); 
     const raw = await res.text();
     const { meta } = parseFrontmatter(raw);
+    console.log('Meta:', meta); 
     const catLabel = CATEGORY_LABELS[meta.category] || meta.category || '';
 
     const card = document.createElement('div');
