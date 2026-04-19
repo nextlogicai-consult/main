@@ -6,7 +6,7 @@ readtime: 7 Min
 description: A real story about how one salon owner stopped drowning in
   bookings, no-shows, and follow-up messages by adding a few simple AI tools to
   her existing workflow. No tech background required.
-image: ""
+image: /images/salon.jpg
 featured: false
 seo:
   meta_title: How a Salon Owner Cut Admin Time by 6 Hours a Week With AI
