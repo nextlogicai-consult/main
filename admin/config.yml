@@ -30,4 +30,15 @@ collections:
       - { label: "Read Time (e.g. 7 min)", name: "readtime", widget: "string" }
       - { label: "Summary", name: "description", widget: "text" }
       - { label: "Featured Post?", name: "featured", widget: "boolean", default: false }
+      - label: "SEO"
+        name: "seo"
+        widget: "object"
+        collapsed: true
+        fields:
+          - { label: "Meta Title", name: "meta_title", widget: "string", required: false, hint: "Overrides post title in search results. Keep under 60 characters." }
+          - { label: "Meta Description", name: "meta_description", widget: "text", required: false, hint: "Search result snippet. Keep under 155 characters." }
+          - { label: "Focus Keyword", name: "focus_keyword", widget: "string", required: false, hint: "Primary keyword this post targets." }
+          - { label: "Additional Keywords", name: "keywords", widget: "list", required: false, hint: "Supporting keywords, one per line." }
+          - { label: "Canonical URL", name: "canonical", widget: "string", required: false, hint: "Only set if this post is duplicated elsewhere." }
+          - { label: "OG Image", name: "og_image", widget: "image", required: false, hint: "Social share image. Ideal size 1200x630px." }
       - { label: "Body", name: "body", widget: "markdown" }
