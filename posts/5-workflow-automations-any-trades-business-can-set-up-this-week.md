@@ -6,6 +6,7 @@ readtime: 8 Min
 description: If you run a trades business and you're still doing job follow-ups,
   quote reminders, and scheduling by hand, this is for you. Five automations you
   can actually set up this week, no developer required.
+image: /images/workflowautomations.jpg
 featured: false
 seo:
   meta_title: 5 Workflow Automations for Trades Businesses
